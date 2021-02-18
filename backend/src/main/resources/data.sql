@@ -20,3 +20,7 @@ INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 1, 1);
 INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id) VALUES ('Forum', 'Tira suas duvidas', 2, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 2, 1);
 INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Live exclusiva para turma', 3, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 0, 1);
+
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 1', 'Neste capitulo vamos começar', 1, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 1, null);
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 2', 'Neste capitulo vamos continuar', 1, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 1, 1);
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 3', 'Neste capitulo vamos finalizar', 1, 'https://cdn.iconscout.com/icon/free/png-512/html5-19-722707.png', 1, 2);
