@@ -1,7 +1,9 @@
 package com.abcode.learn.resources.exceptions;
 
 import com.abcode.learn.services.exceptions.DatabaseException;
+import com.abcode.learn.services.exceptions.ForbiddenException;
 import com.abcode.learn.services.exceptions.ResourceNotFoundException;
+import com.abcode.learn.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -54,5 +56,17 @@ public class ResourceExceptionHandler {
         }
 
         return ResponseEntity.status(status).body(error);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
+        OAuthCustomError error = new OAuthCustomError("Forbidden", e.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException e, HttpServletRequest request) {
+        OAuthCustomError error = new OAuthCustomError("Unauthorized", e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
 }
